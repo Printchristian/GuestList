@@ -1,3 +1,18 @@
+import { useState } from "react";
+
+import GuestDetails from "./guestlist/GuestDetails";
+import GuestList from "./guestlist/GuestList";
+
+/** Users can toggle between a list of guests and the details of a single guest */
 export default function App() {
-  return <></>;
+  const [guestId, setGuestId] = useState(null);
+  return (
+    <main>
+      {guestId ? (
+        <GuestDetails guestId={guestId} setGuestId={setGuestId} />
+      ) : (
+        <GuestList setGuestId={setGuestId} />
+      )}
+    </main>
+  );
 }
